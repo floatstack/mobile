@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "249009206617",
+    "project_id": "floatstack-56924",
+    "storage_bucket": "floatstack-56924.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:249009206617:android:a56966cde3f2296e844848",
+        "android_client_info": {
+          "package_name": "com.floatstack.stack"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKqAbcG5CNZgWaouTOFMIEPwkiDifl204"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
