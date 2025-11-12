@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stack/helper/logics.dart';
 
-import 'dashboard.dart';
+import 'nav/dashboard.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
