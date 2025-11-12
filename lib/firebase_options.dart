@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
 
 class DefaultFirebaseOptions {
+
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
       throw UnsupportedError(
@@ -55,4 +56,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'floatstack-56924.firebasestorage.app',
     iosBundleId: 'com.floatstack.stack',
   );
+
 }
