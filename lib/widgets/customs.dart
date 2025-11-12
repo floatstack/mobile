@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+
+import '../helper/color.dart';
+import 'txt.dart';
 
 bH(sz) {
   double a1 = sz.toDouble();
@@ -39,7 +43,40 @@ devW(c, i) {
 
 devH(c, i) {
   return MediaQuery.of(c).size.height / i;
+}
 
+appHeader(sub) {
+  return Container(
+    color: Colors.white,
+    child: Column(
+      children: [
+        bH(12),
+        Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 16),
+              child: SvgPicture.asset('assets/icons/ham.svg'),
+            ),
+            Center(child: Txt(title: 'Card Withdrawal', size: 22, color: primary)),
+          ],
+        ),
+        bH(12),
+        Container(
+          width: double.infinity,
+          color: gray,
+          height: 1,
+        ),
+        Align(
+          alignment: Alignment.bottomLeft,
+          child: Padding(
+            padding: padS(12, 16),
+            child: Txt(title: sub, size: 16, weight: FontWeight.w400),
+          ),
+        ),
+        bH(12),
+      ],
+    ),
+  );
 }
 
 
