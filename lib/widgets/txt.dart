@@ -42,8 +42,8 @@ class _State extends State<Txt> {
         maxLines: widget.lines,
         textAlign: widget.align ?? TextAlign.start,
         style:
-            widget.font == 'm'
-                ? GoogleFonts.manrope(
+            widget.font == 'i'
+                ? GoogleFonts.inter(
                   color: widget.color ?? Colors.black,
                   fontSize: widget.size ?? 14,
                   fontStyle: widget.style ?? FontStyle.normal,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../helper/color.dart';
 import '../helper/logics.dart';
@@ -8,7 +7,7 @@ import '../widgets/txt.dart';
 import 'card_pin.dart';
 
 class CardAccountType extends StatefulWidget {
-  final int amount;
+  final num amount;
   const CardAccountType({super.key, required this.amount});
 
   @override
@@ -25,37 +24,7 @@ class _State extends State<CardAccountType> {
         child: Column(
           spacing: 4,
           children: [
-            Container(
-              color: Colors.white,
-              child: Column(
-                children: [
-                  bH(8),
-                  Stack(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 16),
-                        child: SvgPicture.asset('assets/icons/ham.svg'),
-                      ),
-                      Center(child: Txt(title: 'Card Withdrawal', size: 22, color: primary)),
-                    ],
-                  ),
-                  bH(8),
-                  Container(
-                    width: double.infinity,
-                    color: gray,
-                    height: 1,
-                  ),
-                  Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Padding(
-                      padding: padS(12, 16),
-                      child: Txt(title: 'Select Account Type', size: 16, weight: FontWeight.w400),
-                    ),
-                  ),
-                  bH(12),
-                ],
-              ),
-            ),
+            appHeader('Select Account Type'),
             bH(12),
             Expanded(
               child: SingleChildScrollView(

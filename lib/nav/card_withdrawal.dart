@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:stack/helper/logics.dart';
+import 'package:stack/nav/card_account_type.dart';
 import 'package:stack/widgets/customs.dart';
 import 'package:stack/widgets/txt.dart';
 
@@ -31,7 +33,7 @@ class _State extends State<CardWithdrawal> {
                 decoration: conDeco(8, Colors.white),
                 width: double.infinity,
                 height: devH(context, 4),
-                child: Txt(title: v, size: 24, color: primary),
+                child: Txt(title: formatAmount(v), size: 24, color: primary),
               ),
               Expanded(
                 child: Align(
@@ -100,11 +102,14 @@ class _State extends State<CardWithdrawal> {
                                     child: SvgPicture.asset('assets/icons/cancel.svg', fit: BoxFit.scaleDown),
                                   ),
                                 ),
-                                Container(
-                                  width: devW(context, 4.5),
-                                  height: devW(context, 2.25),
-                                  decoration: conDeco(6, primary),
-                                  child: Center(child: Txt(title: 'ENTER', color: Colors.white, size: 16)),
+                                GestureDetector(
+                                  onTap: () => open(context, CardAccountType(amount: num.tryParse(v) ?? 0)),
+                                  child: Container(
+                                    width: devW(context, 4.5),
+                                    height: devW(context, 2.25),
+                                    decoration: conDeco(6, primary),
+                                    child: Center(child: Txt(title: 'ENTER', color: Colors.white, size: 16)),
+                                  ),
                                 ),
                               ],
                             ),
@@ -126,17 +131,22 @@ class _State extends State<CardWithdrawal> {
   numKey(i){
     return GestureDetector(
       onTap: () {
-
-        if(i == 'C'){
-          setState(() {
-            v = '';
-          });
-          return;
-        }
         setState(() {
+          if(i == 'C'){
+            v = '';
+            return;
+          }
+          if(v == '' && i == '0'){
+            return;
+          }
+          if(v == '' && i == '000'){
+            return;
+          }
+          if(v.length > 11){
+            return;
+          }
           v = v + i.toString();
         });
-
       },
       child: Container(
         width: devW(context, 4.5),
