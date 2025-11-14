@@ -276,66 +276,70 @@ class _State extends State<CardPIN> {
   showAlert(floatCheck) {
     close();
     showDialog(
+      barrierDismissible: false,
       context: context,
       builder:
           (ctx) => StatefulBuilder(
         builder: (context, setState) {
-          return AlertDialog(
-            backgroundColor: Colors.white,
-            insetPadding: padS(24, 8),
-            contentPadding: padA(16),
-            shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(12))),
-            content: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                // Align(
-                //   alignment: Alignment.topRight,
-                //   child: InkWell(
-                //     onTap: () => Navigator.pop(context),
-                //     child: Padding(padding: padA(4), child: SvgPicture.asset('assets/icons/cancel.svg')),
-                //   ),
-                // ),
-                bH(16),
-                Container(
-                    padding: padA(8),
-                    decoration: conDeco(8, primary),
-                    child: SvgPicture.asset('assets/icons/alert.svg')),
-                bH(16),
-                Txt(
-                  align: TextAlign.center,
-                  title: 'Withdrawal Successful',
-                  size: 16,
-                  weight: FontWeight.w600,
-                ),
-                bH(4),
-                Txt(
-                  align: TextAlign.center,
-                  title: 'Your transaction completed successfully.',
-                  size: 12,
-                  weight: FontWeight.w400,
-                ),
-                bH(16),
-                ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      elevation: 0,
-                      splashFactory: NoSplash.splashFactory,
-                      backgroundColor: primary,
-                      minimumSize: Size.fromHeight(devH(context, 16)),
-                      shape: RoundedRectangleBorder(
-                        side: BorderSide(color: primary),
-                        borderRadius: BorderRadius.circular(8),
+          return PopScope(
+            canPop: false,
+            child: AlertDialog(
+              backgroundColor: Colors.white,
+              insetPadding: padS(24, 8),
+              contentPadding: padA(16),
+              shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(12))),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  // Align(
+                  //   alignment: Alignment.topRight,
+                  //   child: InkWell(
+                  //     onTap: () => Navigator.pop(context),
+                  //     child: Padding(padding: padA(4), child: SvgPicture.asset('assets/icons/cancel.svg')),
+                  //   ),
+                  // ),
+                  bH(16),
+                  Container(
+                      padding: padA(8),
+                      decoration: conDeco(8, primary),
+                      child: SvgPicture.asset('assets/icons/alert.svg')),
+                  bH(16),
+                  Txt(
+                    align: TextAlign.center,
+                    title: 'Withdrawal Successful',
+                    size: 16,
+                    weight: FontWeight.w600,
+                  ),
+                  bH(4),
+                  Txt(
+                    align: TextAlign.center,
+                    title: 'Your transaction completed successfully.',
+                    size: 12,
+                    weight: FontWeight.w400,
+                  ),
+                  bH(16),
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        elevation: 0,
+                        splashFactory: NoSplash.splashFactory,
+                        backgroundColor: primary,
+                        minimumSize: Size.fromHeight(devH(context, 16)),
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(color: primary),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
                       ),
-                    ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                      if(floatCheck){
-                        openX(context, NotificationDetails());
-                      } else {
-                        openX(context, Dashboard());
-                      }
-                    }, child: Txt(title: 'Print Receipt', size: 12, color: Colors.white)),
-              ],
+                      onPressed: () {
+                        Navigator.pop(context);
+                        if(floatCheck){
+                          openX(context, NotificationDetails());
+                        } else {
+                          openX(context, Dashboard());
+                        }
+                      }, child: Txt(title: 'Print Receipt', size: 12, color: Colors.white)),
+                ],
+              ),
             ),
           );
         },
