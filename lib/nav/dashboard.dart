@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../helper/color.dart';
@@ -17,6 +18,13 @@ class Dashboard extends StatefulWidget {
 class _State extends State<Dashboard> {
 
   String balance  = '0.00';
+
+  @override
+  void initState() {
+    final box = GetStorage();
+    balance = box.read('balance') ?? '0.00';
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

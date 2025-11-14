@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:stack/helper/logics.dart';
+import 'package:stack/nav/notificationDetails.dart';
 
 import 'nav/dashboard.dart';
 
@@ -28,6 +30,12 @@ class _State extends State<Splash> {
   }
 
   bootSuccess() {
-    openX(context,  Dashboard());
+    final box = GetStorage();
+    if (box.read('navigation').toString() == 'open') {
+      openX(context, NotificationDetails());
+    } else {
+      openX(context,  Dashboard());
+    }
+
   }
 }
